@@ -1,7 +1,7 @@
 /// heroes
 ///
 /// A Aqueduct web server.
-library heroes;
+library WishYou;
 
 export 'dart:async';
 export 'dart:io';
