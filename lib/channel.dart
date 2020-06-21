@@ -1,5 +1,7 @@
 import 'WishYou.dart';
 import 'controller/demo_controller.dart';
+import 'controller/Login_controller.dart';
+import 'controller/ChatRoom_controller.dart';
 
 /// This type initializes an application.
 ///
@@ -40,6 +42,8 @@ class HeroesChannel extends ApplicationChannel {
     final router = Router();
 
     router.route('/demo/[:ID]').link(() => DemoController(context));
+    router.route('/login/[:ID]').link(() => LoginController(context));
+    router.route('/chatroom/more').link(() =>ChatRoomController(context));
 
     return router;
   }
