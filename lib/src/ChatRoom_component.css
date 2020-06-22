@@ -1,0 +1,49 @@
+.chatroom {
+    background-color: rgba(168, 168, 168, );
+    height: 65%;
+    width: 50%;
+    position: absolute;
+    left: 20%;
+    top: 5%;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.messageBox {
+    height: 25%;
+    width: 70%;
+    border-width: 0.02px;
+    border-style: none;
+}
+
+.circle {
+    width: 60px;
+    height: 60px;
+    background: rgb(117, 192, 255);
+    -moz-border-radius: 60px;
+    -webkit-border-radius: 60px;
+    border-radius: 60px;
+    position: relative;
+}
+
+.messageOther {
+    background-color: rgba(191, 191, 191, 1);
+    height: 25%;
+    width: 50%;
+    border-width: 15px;
+    border-style: solid;
+    border-color: rgba(191, 191, 191);
+    position: relative;
+}
+
+.messageMy {
+    background-color: rgba(191, 191, 191, 0.5);
+    height: 25%;
+    width: 70%;
+    position: relative;
+    left: 25%;
+    top: 0%;
+    border-width: 15px;
+    border-style: ridge;
+    border-color: rgba(191, 191, 191);
+}

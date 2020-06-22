@@ -28,15 +28,17 @@
 import 'package:angular/angular.dart';
 import 'package:angular_router/angular_router.dart';
 
+import 'src/routes.dart';
 import 'src/WishYou_service.dart';
 
 @Component(
   selector: 'my-app',
- templateUrl: 'app_component.html',
+  templateUrl:'app_component.html',
   styleUrls: ['app_component.css'],
   directives: [routerDirectives],
   providers: [ClassProvider(WishYouService)],
+  exports: [RoutePaths, Routes],
 )
 class AppComponent {
-  final title = 'Tour of Heroes';
+  final title = '在这里修改网页标题';
 }

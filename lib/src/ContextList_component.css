@@ -1,0 +1,25 @@
+.contextList {
+    background-color: rgba(168, 168, 168, );
+    height: 95%;
+    width: 20%;
+    position: absolute;
+    left: 0;
+    top: 5%;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.context {
+    background-color: white;
+    /*(191, 191, 191, 1)*/
+    height: 13%;
+    width: 100%;
+    position: relative;
+    left: 0%;
+    top: 0%;
+    border-width: 0.02px;
+    border-top-style: solid;
+    border-color: rgb(236, 236, 236);
+    /*outline-style: solid;*/
+    /*border-color: rgba(168, 168, 168);*/
+}
