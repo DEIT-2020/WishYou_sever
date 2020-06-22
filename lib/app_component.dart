@@ -1,43 +1,31 @@
-// import 'package:angular/angular.dart';
-// import 'package:angular_router/angular_router.dart';
-
-// import 'src/hero_service.dart';
-// import 'src/routes.dart';
-
-// @Component(
-//   selector: 'my-app',
-//   template: '''
-//     <h1>{{title}}</h1>
-//     <nav>
-//       <a [routerLink]="RoutePaths.dashboard.toUrl()"
-//          [routerLinkActive]="'active'">Dashboard</a>
-//       <a [routerLink]="RoutePaths.heroes.toUrl()"
-//          [routerLinkActive]="'active'">Heroes</a>
-//     </nav>
-//     <router-outlet [routes]="Routes.all"></router-outlet>
-//   ''',
-//   styleUrls: ['app_component.css'],
-//   directives: [routerDirectives],
-//   providers: [ClassProvider(HeroService)],
-//   exports: [RoutePaths, Routes],
-// )
-// class AppComponent {
-//   final title = 'Tour of Heroes';
-// }
-
 import 'package:angular/angular.dart';
 import 'package:angular_router/angular_router.dart';
 
-import 'src/routes.dart';
 import 'src/WishYou_service.dart';
+import 'src/ChatRoom_component.dart';
+import 'src/ContextList_component.dart';
+import 'src/Login_component.dart';
+import 'src/QandA_component.dart';
+import 'src/Send_component.dart';
+import 'src/State_component.dart';
 
 @Component(
   selector: 'my-app',
-  templateUrl:'app_component.html',
-  styleUrls: ['app_component.css'],
-  directives: [routerDirectives],
+template: '''
+    <Login>
+    </Login>
+  ''',
+
+  directives: [
+    routerDirectives,
+    ChatRoomcomponent,
+    ComtextListComponent,
+    LoginComponent,
+    QandAComponent,
+    SendComponent,
+    StateComponent
+  ],
   providers: [ClassProvider(WishYouService)],
-  exports: [RoutePaths, Routes],
 )
 class AppComponent {
   final title = '在这里修改网页标题';

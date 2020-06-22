@@ -6,17 +6,17 @@ import 'WishYou_service.dart';
 import 'route_paths.dart';
 
 @Component(
-  selector: 'Send',
-  templateUrl: 'Send_component.html',
-  styleUrls: ['Send_component.css'],
-  directives: [coreDirectives,routerDirectives],
+  selector: 'Login',
+  templateUrl: 'Login_component.html',
+  styleUrls: ['Login_component.css'],
+  directives: [coreDirectives, routerDirectives],
 )
-class SendComponent implements OnInit {
+class LoginComponent implements OnInit {
   List<Hero> heroes;
 
   final WishYouService _heroService;
 
-  SendComponent(this._heroService);
+  LoginComponent(this._heroService);
 
   String heroUrl(int id) => RoutePaths.hero.toUrl(parameters: {idParam: '$id'});
 
