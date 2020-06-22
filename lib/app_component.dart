@@ -12,15 +12,17 @@ import 'src/State_component.dart';
 @Component(
   selector: 'my-app',
 template: '''
-    <ChatRoom>
-    </ChatRoom>,
-    <ContextList></ContextList>,
-<QandA></QandA>,
-<Send></Send>,
-<State></State>,
+<Login>
+</Login>
+
 
   ''',
-
+//     <ChatRoom>
+//     </ChatRoom>,
+//     <ContextList></ContextList>,
+// <QandA></QandA>,
+// <Send></Send>,
+// <State></State>,
   directives: [
     routerDirectives,
     ChatRoomcomponent,
