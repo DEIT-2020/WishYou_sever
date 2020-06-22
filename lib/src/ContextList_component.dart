@@ -26,6 +26,7 @@ import 'route_paths.dart';
   ],
 )
 class ContextListComponent implements OnInit {
+    List<int> heroes = [1,2,3,4,5  ];
   @override
   void ngOnInit() async {
    
