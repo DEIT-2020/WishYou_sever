@@ -18,7 +18,6 @@ class ComtextListComponent implements OnInit {
 
   ComtextListComponent(this._heroService);
 
-  String heroUrl(int id) => RoutePaths.hero.toUrl(parameters: {idParam: '$id'});
 
   @override
   void ngOnInit() async {

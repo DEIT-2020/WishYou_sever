@@ -19,8 +19,7 @@ class ChatRoomcomponent implements OnInit {
 
   ChatRoomcomponent(this._heroService);
 
-  String heroUrl(int id) => RoutePaths.hero.toUrl(parameters: {idParam: '$id'});
-
+  
   @override
   void ngOnInit() async {
     heroes = (await _heroService.getAll()).skip(1).take(4).toList();
