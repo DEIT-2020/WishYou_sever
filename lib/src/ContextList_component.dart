@@ -6,9 +6,9 @@ import 'WishYou_service.dart';
 import 'route_paths.dart';
 
 @Component(
-  selector: 'ComtextList',
+  selector: 'ContextList',
   templateUrl: 'ContextList_component.html',
-  styleUrls: ['ComtextList_component.css'],
+  styleUrls: ['ContextList_component.css'],
   directives: [coreDirectives, routerDirectives],
 )
 class ComtextListComponent implements OnInit {
