@@ -14,7 +14,16 @@ import 'route_paths.dart';
   selector: 'Send',
   templateUrl: 'Send_component.html',
   styleUrls: ['Send_component.css'],
-  directives: [coreDirectives,routerDirectives],
+   directives: [
+    routerDirectives,
+    ChatRoomcomponent,
+    ComtextListComponent,
+    LoginComponent,
+    QandAComponent,
+    SendComponent,
+    StateComponent,
+    routerDirectives
+  ],
 )
 class SendComponent implements OnInit {
   @override

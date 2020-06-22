@@ -14,7 +14,16 @@ import 'route_paths.dart';
   selector: 'QandA',
   templateUrl: 'QandA_component.html',
   styleUrls: ['QandA_component.css'],
-  directives: [coreDirectives, routerDirectives],
+   directives: [
+    routerDirectives,
+    ChatRoomcomponent,
+    ComtextListComponent,
+    LoginComponent,
+    QandAComponent,
+    SendComponent,
+    StateComponent,
+    routerDirectives
+  ],
 )
 class QandAComponent implements OnInit {
 

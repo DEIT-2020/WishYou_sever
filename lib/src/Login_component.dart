@@ -10,7 +10,16 @@ import 'State_component.dart';
   selector: 'Login',
   templateUrl: 'Login_component.html',
   styleUrls: ['Login_component.css'],
-  directives: [coreDirectives, routerDirectives],
+   directives: [
+    routerDirectives,
+    ChatRoomcomponent,
+    ComtextListComponent,
+    LoginComponent,
+    QandAComponent,
+    SendComponent,
+    StateComponent,
+    routerDirectives
+  ],
 )
 class LoginComponent implements OnInit {
 

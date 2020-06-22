@@ -14,7 +14,16 @@ import 'State_component.dart';
   selector: 'State',
   templateUrl: 'State_component.html',
   styleUrls: ['State_component.css'],
-  directives: [coreDirectives, routerDirectives],
+  directives: [
+    routerDirectives,
+    ChatRoomcomponent,
+    ComtextListComponent,
+    LoginComponent,
+    QandAComponent,
+    SendComponent,
+    StateComponent,
+    routerDirectives
+  ],
 )
 class StateComponent implements OnInit {
   @override

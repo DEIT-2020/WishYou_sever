@@ -14,7 +14,16 @@ import 'route_paths.dart';
   selector: 'ContextList',
   templateUrl: 'ContextList_component.html',
   styleUrls: ['ContextList_component.css'],
-  directives: [coreDirectives, routerDirectives],
+  directives: [
+    routerDirectives,
+    ChatRoomcomponent,
+    ComtextListComponent,
+    LoginComponent,
+    QandAComponent,
+    SendComponent,
+    StateComponent,
+    routerDirectives
+  ],
 )
 class ComtextListComponent implements OnInit {
   @override
