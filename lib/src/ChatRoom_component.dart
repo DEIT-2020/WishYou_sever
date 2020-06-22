@@ -13,15 +13,8 @@ import 'route_paths.dart';
   directives: [coreDirectives,  routerDirectives],
 )
 class ChatRoomcomponent implements OnInit {
-  List<Hero> heroes;
-
-  final WishYouService _heroService;
-
-  ChatRoomcomponent(this._heroService);
-
-  
   @override
   void ngOnInit() async {
-    heroes = (await _heroService.getAll()).skip(1).take(4).toList();
+   
   }
 }

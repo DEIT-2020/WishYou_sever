@@ -12,8 +12,8 @@ import 'src/State_component.dart';
 @Component(
   selector: 'my-app',
 template: '''
-    <Login>
-    </Login>
+    <ChatRoom>
+    </ChatRoom>
   ''',
 
   directives: [
