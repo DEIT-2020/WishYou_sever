@@ -13,7 +13,7 @@ import 'State_component.dart';
    directives: [
     routerDirectives,
     ChatRoomcomponent,
-    ComtextListComponent,
+    ContextListComponent,
     LoginComponent,
     QandAComponent,
     SendComponent,

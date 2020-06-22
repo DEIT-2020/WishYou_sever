@@ -17,7 +17,7 @@ import 'route_paths.dart';
   directives: [
     routerDirectives,
     ChatRoomcomponent,
-    ComtextListComponent,
+    ContextListComponent,
     LoginComponent,
     QandAComponent,
     SendComponent,
@@ -25,7 +25,7 @@ import 'route_paths.dart';
     routerDirectives
   ],
 )
-class ComtextListComponent implements OnInit {
+class ContextListComponent implements OnInit {
   @override
   void ngOnInit() async {
    
