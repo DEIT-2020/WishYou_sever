@@ -4,6 +4,7 @@ import 'package:angular_router/angular_router.dart';
 import 'hero.dart';
 import 'WishYou_service.dart';
 import 'route_paths.dart';
+import 'Login_component.template.dart' as self;
 
 @Component(
   selector: 'Login',
@@ -26,9 +27,7 @@ class LoginComponent implements OnInit {
     heroes = (await _heroService.getAll()).skip(1).take(4).toList();
   }
 
-    String _heroUrl(int id) =>
-      RoutePaths.hero.toUrl(parameters: {idParam: '$id'});
 
-    Future<NavigationResult> gotoDetail(Hero hero) =>
-      _router.navigate(_heroUrl(hero.id));
+    Future<NavigationResult> gotoChatRoom() =>
+      _router.navigate("chatroom");
 }
