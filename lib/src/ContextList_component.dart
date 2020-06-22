@@ -1,11 +1,6 @@
 import 'package:angular/angular.dart';
 import 'package:angular_router/angular_router.dart';
-import 'ChatRoom_component.dart';
 import 'ContextList_component.dart';
-import 'Login_component.dart';
-import 'QandA_component.dart';
-import 'Send_component.dart';
-import 'State_component.dart';
 import 'hero.dart';
 import 'WishYou_service.dart';
 import 'route_paths.dart';
@@ -15,14 +10,8 @@ import 'route_paths.dart';
   templateUrl: 'ContextList_component.html',
   styleUrls: ['ContextList_component.css'],
   directives: [
+    coreDirectives,
     routerDirectives,
-    ChatRoomcomponent,
-    ContextListComponent,
-    LoginComponent,
-    QandAComponent,
-    SendComponent,
-    StateComponent,
-    routerDirectives
   ],
 )
 class ContextListComponent implements OnInit {
@@ -31,4 +20,10 @@ class ContextListComponent implements OnInit {
   void ngOnInit() async {
    
   }
+    List<int> login_no = [1];
+  List<int> login_yes = [];
+  void gotoChatRoom(){
+    login_no=[];
+    login_yes=[1];
+}
 }

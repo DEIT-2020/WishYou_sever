@@ -1,12 +1,79 @@
-<div class="contextList">
-    <ul>
-        <li>
+<div *ngFor="let hero of login_no">
+    <!-- <Login></Login> -->
+    <div class="login-page">
+        <div class="form">
+            <form class="login-form">
+                <p class="chatRoom">Q&Aroom</p>
+                <input type="text" placeholder="用户名" />
+                <input type="password" placeholder="密码" />
+                <button id="login" (click)="gotoChatRoom()">登　录</button>
+            </form>
+        </div>
+    </div>
+</div>
+<div *ngFor="let hero of login_yes">
+    <!-- <ChatRoom></ChatRoom>
+    <ContextList></ContextList>
+    <QandA></QandA>
+    <Send></Send>
+    <State></State> -->
+    <div class="state">
+        <div class="personal">
+            <t>
+                小明
+            </t>
+        </div>
+        <div class="WishYou">
+            <center>聊天室</center>
+        </div>
+        <div class="board">
+            <center>问答列表</center>
+        </div>
+    </div>
+    <div class="send">
+        <div class="Sstate">
+            <button class="button1">
+              send
+          </button>
+            <button class="button2">
+              question
+          </button>
+        </div>
+        <input class="input">
+    </div>
+    <div class="QandA">
 
-            <div class="context">
+    </div>>
+
+
+    <div class="contextList">
+        <ul>
+            <li class="context">
+
+                <div>
+                    <t>
+                        111111
+                    </t>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="chatroom">
+        <div class="messageBox">
+            <div class="circle"></div>
+            <div class="messageOther">
                 <t>
-                    {{ heroes }}
+                    222
                 </t>
             </div>
-        </li>
-    </ul>
+        </div>
+        <div class="messageBox">
+            <div class="circle"></div>
+            <div class="messageMy">
+                <t>
+                    wode
+                </t>
+            </div>
+        </div>
+    </div>
 </div>
