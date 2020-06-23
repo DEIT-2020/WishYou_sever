@@ -1,17 +1,17 @@
-<div *ngFor="let hero of login_no">
+<div *ngFor="let login of login_no">
     <!-- <Login></Login> -->
     <div class="login-page">
         <div class="form">
             <form class="login-form">
                 <p class="chatRoom">Q&Aroom</p>
-                <input type="text" placeholder="用户名" />
+                <input #login (keyup)="(login.value)" type="text" placeholder="用户名" />
                 <input type="password" placeholder="密码" />
                 <button id="login" (click)="gotoChatRoom()">登　录</button>
             </form>
         </div>
     </div>
 </div>
-<div *ngFor="let hero of login_yes">
+<div *ngFor="let login of login_yes">
     <!-- <ChatRoom></ChatRoom>
     <ContextList></ContextList>
     <QandA></QandA>
