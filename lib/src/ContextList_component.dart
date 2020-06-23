@@ -2,8 +2,8 @@ import 'package:angular/angular.dart';
 
 @Component(
   selector: 'ContextList',
-  // templateUrl: 'ContextList_component.html',
-  templateUrl: '1.html',
+  templateUrl: 'ContextList_component.html',
+  // templateUrl: '1.html',
   styleUrls: ['ContextList_component.css'],
   directives: [
     coreDirectives,
