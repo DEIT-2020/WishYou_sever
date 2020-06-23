@@ -1,9 +1,4 @@
 import 'package:angular/angular.dart';
-import 'package:angular_router/angular_router.dart';
-import 'ContextList_component.dart';
-import 'hero.dart';
-import 'WishYou_service.dart';
-import 'route_paths.dart';
 
 @Component(
   selector: 'ContextList',
@@ -11,7 +6,6 @@ import 'route_paths.dart';
   styleUrls: ['ContextList_component.css'],
   directives: [
     coreDirectives,
-    routerDirectives,
   ],
 )
 class ContextListComponent implements OnInit {
