@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:angular/angular.dart';
 export 'dart:async';
 
@@ -15,6 +13,7 @@ export 'dart:async';
 class ContextListComponent implements OnInit {
   List<int> login_no = [1];
   List<int> login_yes = [];
+
 //datebaseErea
   var users = [
     {
@@ -86,8 +85,6 @@ class ContextListComponent implements OnInit {
       "roomName": "马原2"
     }
   ];
-  var sendTime = new DateTime.now();
-
   var messages = [
     {
       'content': "message",
@@ -185,7 +182,6 @@ class ContextListComponent implements OnInit {
       'quote': "",
       'messageID': "2020-06-24 11:39:59.675_10021"
     },
-    
   ];
 
 //variable
@@ -193,13 +189,11 @@ class ContextListComponent implements OnInit {
   String isquestion = "no";
   String message = "none";
   String roomNow = "";
+  var roomListNow = [];
 
   @override
   void ngOnInit() async {}
-  void send() {
-
-    sendTime = new DateTime.now();
-  }
+  void send() {}
 
   void thisIsQuestion() {
     isquestion = "yes";
@@ -207,14 +201,26 @@ class ContextListComponent implements OnInit {
 
   void gotoChatRoom() {
     for (var loginUser in users) {
+      //存储用户识别信息
       if ((user_now["userID"] == loginUser["userID"]) &&
           (user_now["password"] == loginUser["password"])) {
-        login_no = [];
-        login_yes = [1];
         user_now["phone"] = loginUser["phone"];
         user_now["nickName"] = loginUser["nickName"];
+        //加载聊天室
+        for (var aRoom in chatRooms) {
+          for (var roomUser in aRoom["nameList"]) {
+            if (user_now["userID"] == roomUser) {
+              roomListNow.add(aRoom);
+              break;
+            }
+          }
+        }
+        //登录
+        login_no = [];
+        login_yes = [1];
         break;
       } else {
+        //拒绝登录
         login_no = [1];
         login_yes = [];
       }
