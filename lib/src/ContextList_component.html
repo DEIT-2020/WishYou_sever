@@ -75,15 +75,15 @@
     </div>
 
     <div class="chatroom">
-        <div class="messageBox" *ngFor="let message_item of messageListNow">
+        <div class="messageBox" *ngFor="let question_item of questionListNow">
             <div class="messageOther">
                 <t>
-                    {{message_item["send"]}}
+                    {{question_item["send"]}}
                 </t>
                 <t>
-                    {{message_item["content"]}}
+                    {{question_item["content"]}}
                 </t>
-                <button (click)="quote(message_item)">
+                <button (click)="quote(question_item)">
                     回复
                 </button>
             </div>
