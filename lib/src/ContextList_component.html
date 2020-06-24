@@ -20,7 +20,7 @@
     <div class="state">
         <div class="personal">
             <t>
-                {{user_now["nickName"]}}
+                {{user_now["nickName"]}} {{roomIDNow}}
             </t>
         </div>
         <div class="WishYou">
@@ -32,43 +32,60 @@
     </div>
     <div class="send">
         <div class="Sstate">
+            <t>
+                已引用：
+            </t>
+            <div class="quote">
+            </div>
             <button class="button1" (click)="send()">
-              send
+              发送
           </button>
             <button class="button2" (click)="thisIsQuestion()">
-              question
+              提问
           </button>
+
         </div>
         <input #message class="input" (keyup)="inputmessage(message.value)" type="text" placeholder="输入内容">
     </div>
+
     <div class="QandA">
-    </div>>
-    <div class="contextList">
-        <ul>
-            <div class="context" *ngFor="let context_item of chatRooms" (click)="selectRoom(context_item)">
-                <div>
-                    <t>
-                        {{context_item["roomName"]}}
-                    </t>
-                </div>
-            </div>
-        </ul>
-    </div>
-    <div class="chatroom">
-        <div class="messageBox" *ngFor="let message_item of messages">
-            <div class="circle"></div>
+        <div class="messageBox" *ngFor="let message_item of messageListNow">
             <div class="messageOther">
                 <t>
-                    {{message_item}}
+                    {{message_item["send"]}}
                 </t>
+                <t>
+                    {{message_item["content"]}}
+                </t>
+                <button (click)="quote(message_item)">
+                    回复
+                </button>
             </div>
         </div>
-        <div class="messageBox">
-            <div class="circle"></div>
-            <div class="messageMy">
-                <t>
+    </div>
 
+    <div class="contextList">
+        <div class="context" *ngFor="let a_Room of roomNameListNow">
+            <button (click)="selectRoom(a_Room)">
+                    <t>
+                        {{a_Room}}
+                    </t>
+            </button>
+        </div>
+    </div>
+
+    <div class="chatroom">
+        <div class="messageBox" *ngFor="let message_item of messageListNow">
+            <div class="messageOther">
+                <t>
+                    {{message_item["send"]}}
                 </t>
+                <t>
+                    {{message_item["content"]}}
+                </t>
+                <button (click)="quote(message_item)">
+                    回复
+                </button>
             </div>
         </div>
     </div>

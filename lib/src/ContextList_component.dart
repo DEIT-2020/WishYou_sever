@@ -56,32 +56,32 @@ class ContextListComponent implements OnInit {
   var chatRooms = [
     {
       "nameList": ["10021", '10051', '10002'],
-      "roomID": 0001,
+      "roomID": "0001",
       "roomName": "电子技术"
     },
     {
       "nameList": ["10021", '10051', '10031'],
-      "roomID": 0002,
+      "roomID": "0002",
       "roomName": "概率论"
     },
     {
       "nameList": ["10021", '10051', '10031'],
-      "roomID": 0003,
+      "roomID": "0003",
       "roomName": "马原"
     },
     {
       "nameList": ["10021", '10051', '10031'],
-      "roomID": 0004,
+      "roomID": "0004",
       "roomName": "电子技术2"
     },
     {
       "nameList": ["10021", '10051', '10031'],
-      "roomID": 0005,
+      "roomID": "0005",
       "roomName": "概率论2"
     },
     {
       "nameList": ["10021", '10051', '10031'],
-      "roomID": 0006,
+      "roomID": "0006",
       "roomName": "马原2"
     }
   ];
@@ -189,15 +189,16 @@ class ContextListComponent implements OnInit {
   String isquestion = "no";
   String message = "none";
   String roomNow = "";
+  String roomIDNow = "";
+  String sendMessageQuote = "";
+  bool hadQuote = false;
   var roomListNow = [];
+  var roomNameListNow = [];
+  var messageListNow = [];
+  var questionListNow = [];
 
   @override
   void ngOnInit() async {}
-  void send() {}
-
-  void thisIsQuestion() {
-    isquestion = "yes";
-  }
 
   void gotoChatRoom() {
     for (var loginUser in users) {
@@ -211,6 +212,7 @@ class ContextListComponent implements OnInit {
           for (var roomUser in aRoom["nameList"]) {
             if (user_now["userID"] == roomUser) {
               roomListNow.add(aRoom);
+              roomNameListNow.add(aRoom["roomName"]);
               break;
             }
           }
@@ -239,7 +241,33 @@ class ContextListComponent implements OnInit {
     message = term;
   }
 
-  void selectRoom(var term) {
-    roomNow = term["roomID"];
+  void send() {}
+
+  void quote(var term) {
+    sendMessageQuote = term[quote];
+    hadQuote = true;
+  }
+
+  void thisIsQuestion() {
+    isquestion = "yes";
+  }
+
+  void selectRoom(String term) {
+    messageListNow = [];
+    roomNow = term;
+    for (var aRoom in chatRooms) {
+      if (roomNow == aRoom["roomName"]) {
+        roomIDNow = aRoom["roomID"];
+      }
+    }
+
+    for (var aMessage in messages) {
+      if (roomIDNow == aMessage["receive"]) {
+        messageListNow.add(aMessage);
+        if (aMessage["isQuestion"]) {
+          questionListNow.add(aMessage);
+        }
+      }
+    }
   }
 }
