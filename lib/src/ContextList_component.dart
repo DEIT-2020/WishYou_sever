@@ -11,8 +11,8 @@ export 'dart:async';
   ],
 )
 class ContextListComponent implements OnInit {
-  List<int> login_no = [1];
-  List<int> login_yes = [];
+  List<int> login_no = [];
+  List<int> login_yes = [1];
 
 //datebaseErea
   var users = [
@@ -57,32 +57,32 @@ class ContextListComponent implements OnInit {
     {
       "nameList": ["10021", '10051', '10002'],
       "roomID": "0001",
-      "roomName": "电子技术"
+      "roomName": "学习技术系统开发"
     },
     {
       "nameList": ["10021", '10051', '10031'],
       "roomID": "0002",
-      "roomName": "概率论"
+      "roomName": "概率论与数理统计"
     },
     {
       "nameList": ["10021", '10051', '10031'],
       "roomID": "0003",
-      "roomName": "马原"
+      "roomName": "马原（马克思主义基本原理概论）"
     },
     {
       "nameList": ["10021", '10051', '10031'],
       "roomID": "0004",
-      "roomName": "电子技术2"
+      "roomName": "电子技术综合"
     },
     {
       "nameList": ["10021", '10051', '10031'],
       "roomID": "0005",
-      "roomName": "概率论2"
+      "roomName": "计算机动画技术"
     },
     {
       "nameList": ["10021", '10051', '10031'],
       "roomID": "0006",
-      "roomName": "马原2"
+      "roomName": "影视创作"
     }
   ];
   var messages = [
@@ -185,7 +185,7 @@ class ContextListComponent implements OnInit {
   ];
 
 //variable
-  var user_now = {'userID': "", 'password': '', 'phone': '', 'nickName': ''};
+  var user_now = {'userID': "10021", 'password': '10021', 'phone': '', 'nickName': '吴楚湘'};
   String isquestion = "no";
   String message = "none";
   String roomNow = "";

@@ -1,15 +1,16 @@
-<div *ngFor="let login of login_no">
+<div *ngFor="let login of login_no" class="body">
     <!-- <Login></Login> -->
     <div class="login-page">
         <div class="form">
             <form class="login-form">
                 <p class="chatRoom">Q&Aroom</p>
-                <input #login (keyup)="inputuser(login.value)" type="text" placeholder="用户名" />
-                <input #password (keyup)="inputPassword(password.value)" type="password" placeholder="密码" />
+                <input #login (keyup)="inputuser(login.value)" type="text" placeholder="10021" />
+                <input #password (keyup)="inputPassword(password.value)" type="password" placeholder="10021" />
                 <button id="login" (click)="gotoChatRoom()">登　录</button>
             </form>
         </div>
     </div>
+
 </div>
 <div *ngFor="let login of login_yes">
     <!-- <ChatRoom></ChatRoom>
@@ -19,31 +20,50 @@
     <State></State> -->
     <div class="state">
         <div class="personal">
-            <t>
-                {{user_now["nickName"]}} {{roomIDNow}}
-            </t>
+            {{user_now["nickName"]}}
+            <button id="login" (click)="gotoChatRoom()">登　录</button>
         </div>
-        <div class="WishYou">
-            <center>聊天室</center>
-        </div>
-        <div class="board">
-            <center>问答列表</center>
+
+        <div class="WishYou">聊天室</div>
+        <div class="board">问答列表</div>
+    </div>
+
+    <div class="contextList">
+        <div class="context" *ngFor="let a_Room of roomNameListNow">
+            <button (click)="selectRoom(a_Room)" class="button1">
+                <!-- <t> -->
+                {{a_Room}}
+                <!-- </t> -->
+            </button>
         </div>
     </div>
+
+    <div class="chatroom">
+        <div class="messageBox" *ngFor="let question_item of questionListNow">
+            <div class="messageOther">
+                <t>
+                    {{question_item["send"]}}
+                </t>
+                <t>
+                    {{question_item["content"]}}
+                </t>
+                <button (click)="quote(question_item)">
+                    回复
+                </button>
+            </div>
+        </div>
+    </div>
+
     <div class="send">
         <div class="Sstate">
-            <t>
-                已引用：
-            </t>
-            <div class="quote">
-            </div>
-            <button class="button1" (click)="send()">
-              发送
-          </button>
-            <button class="button2" (click)="thisIsQuestion()">
-              提问
-          </button>
-
+            <div class="quote">引用：</div>
+            <div class="quoteJudge">--</div>
+            <button class="button3" (click)="send()">
+                发送
+            </button>
+            <button class="button4" (click)="thisIsQuestion()">
+                提问
+            </button>
         </div>
         <input #message class="input" (keyup)="inputmessage(message.value)" type="text" placeholder="输入内容">
     </div>
@@ -64,29 +84,4 @@
         </div>
     </div>
 
-    <div class="contextList">
-        <div class="context" *ngFor="let a_Room of roomNameListNow">
-            <button (click)="selectRoom(a_Room)">
-                    <t>
-                        {{a_Room}}
-                    </t>
-            </button>
-        </div>
-    </div>
-
-    <div class="chatroom">
-        <div class="messageBox" *ngFor="let question_item of questionListNow">
-            <div class="messageOther">
-                <t>
-                    {{question_item["send"]}}
-                </t>
-                <t>
-                    {{question_item["content"]}}
-                </t>
-                <button (click)="quote(question_item)">
-                    回复
-                </button>
-            </div>
-        </div>
-    </div>
 </div>
