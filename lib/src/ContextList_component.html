@@ -20,11 +20,13 @@
     <div class="state">
         <div class="personal">
             <t>
-                {{user_now["nickName"]}} {{roomIDNow}}
+                {{user_now["nickName"]}}
             </t>
         </div>
         <div class="WishYou">
-            <center>聊天室</center>
+            <center>聊天室
+
+            </center>
         </div>
         <div class="board">
             <center>问答列表</center>
@@ -48,21 +50,6 @@
         <input #message class="input" (keyup)="inputmessage(message.value)" type="text" placeholder="输入内容">
     </div>
 
-    <div class="QandA">
-        <div class="messageBox" *ngFor="let message_item of messageListNow">
-            <div class="messageOther">
-                <t>
-                    {{message_item["send"]}}
-                </t>
-                <t>
-                    {{message_item["content"]}}
-                </t>
-                <button (click)="quote(message_item)">
-                    回复
-                </button>
-            </div>
-        </div>
-    </div>
 
     <div class="contextList">
         <div class="context" *ngFor="let a_Room of roomNameListNow">
@@ -74,7 +61,7 @@
         </div>
     </div>
 
-    <div class="chatroom">
+    <div class="QandA">
         <div class="messageBox" *ngFor="let question_item of questionListNow">
             <div class="messageOther">
                 <t>
@@ -87,6 +74,22 @@
                     回复
                 </button>
             </div>
+        </div>
+    </div>
+</div>
+
+<div class="chatroom">
+    <div class="messageBox" *ngFor="let message_item of messageListNow">
+        <div class="messageOther">
+            <t>
+                {{message_item["send"]}}
+            </t>
+            <t>
+                {{message_item["content"]}}
+            </t>
+            <button (click)="quote(message_item)">
+                回复
+            </button>
         </div>
     </div>
 </div>

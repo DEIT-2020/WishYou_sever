@@ -186,12 +186,15 @@ class ContextListComponent implements OnInit {
 
 //variable
   var user_now = {'userID': "", 'password': '', 'phone': '', 'nickName': ''};
-  String isquestion = "no";
-  String message = "none";
   String roomNow = "";
   String roomIDNow = "";
   String sendMessageQuote = "";
-  bool hadQuote = false;
+  String sendMessageID = "";
+  String sendMessageReceive = "";
+  String sendMessageSend = "";
+  String sendMessageContent = "";
+  bool sendMessageIsQuestion = false;
+  bool sendhadQuote = false;
   var roomListNow = [];
   var roomNameListNow = [];
   var messageListNow = [];
@@ -199,7 +202,41 @@ class ContextListComponent implements OnInit {
 
   @override
   void ngOnInit() async {}
-
+  
+void send() {
+  var nowTime ;
+  String sendTime;
+  sendMessageSend=user_now["userID"];
+  sendMessageReceive=roomIDNow;
+  nowTime = new DateTime.now();
+  sendTime=nowTime.toString();
+  sendMessageID= sendTime+"_"+sendMessageSend;
+  messages.add({
+      'content': sendMessageContent,
+      'send': sendMessageSend,
+      'receive': sendMessageReceive,
+      'isQuestion': sendMessageIsQuestion,
+      'quote': sendMessageQuote,
+      'messageID': sendMessageID
+    },);
+  sendMessageQuote = "";
+  sendMessageID = "";
+  sendMessageReceive = "";
+  sendMessageSend = "";
+  sendMessageContent = "";
+  sendMessageIsQuestion = false;
+  sendhadQuote = false;
+    messageListNow = [];
+    questionListNow=[];   
+    for (var aMessage in messages) {
+      if (roomIDNow == aMessage["receive"]) {
+        messageListNow.add(aMessage);
+        if (aMessage["isQuestion"]) {
+          questionListNow.add(aMessage);
+        }
+      }
+    }
+}
   void gotoChatRoom() {
     for (var loginUser in users) {
       //存储用户识别信息
@@ -238,22 +275,24 @@ class ContextListComponent implements OnInit {
   }
 
   void inputmessage(String term) {
-    message = term;
+    sendMessageContent=term;
   }
 
-  void send() {}
+  
 
   void quote(var term) {
-    sendMessageQuote = term[quote];
-    hadQuote = true;
+    sendMessageQuote = term["messageID"];
+    sendhadQuote = true;
   }
 
   void thisIsQuestion() {
-    isquestion = "yes";
+    sendMessageIsQuestion = true;
   }
 
   void selectRoom(String term) {
     messageListNow = [];
+    questionListNow=[];   
+    
     roomNow = term;
     for (var aRoom in chatRooms) {
       if (roomNow == aRoom["roomName"]) {
