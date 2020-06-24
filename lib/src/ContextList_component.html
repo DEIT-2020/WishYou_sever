@@ -5,7 +5,7 @@
             <form class="login-form">
                 <p class="chatRoom">Q&Aroom</p>
                 <input #login (keyup)="inputuser(login.value)" type="text" placeholder="用户名" />
-                <input type="password" placeholder="密码" />
+                <input #password (keyup)="inputPassword(password.value)" type="password" placeholder="密码" />
                 <button id="login" (click)="gotoChatRoom()">登　录</button>
             </form>
         </div>
@@ -20,7 +20,7 @@
     <div class="state">
         <div class="personal">
             <t>
-                小明
+                {{user_now["nickName"]}}
             </t>
         </div>
         <div class="WishYou">
@@ -45,13 +45,13 @@
     </div>>
     <div class="contextList">
         <ul>
-            <li class="context" *ngFor="let context_item of contexts">
+            <div class="context" *ngFor="let context_item of chatRooms" (click)="selectRoom(context_item)">
                 <div>
                     <t>
-                        {{context_item}}
+                        {{context_item["roomName"]}}
                     </t>
                 </div>
-            </li>
+            </div>
         </ul>
     </div>
     <div class="chatroom">
@@ -67,7 +67,7 @@
             <div class="circle"></div>
             <div class="messageMy">
                 <t>
-                    wode
+                    {{sendTime}}
                 </t>
             </div>
         </div>

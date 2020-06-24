@@ -1,20 +1,22 @@
+import 'dart:async';
+
 import 'package:angular/angular.dart';
 export 'dart:async';
 
 @Component(
   selector: 'ContextList',
-  // templateUrl: 'ContextList_component.html',
-  templateUrl: '1.html',
+  templateUrl: 'ContextList_component.html',
+  // templateUrl: '1.html',
   styleUrls: ['ContextList_component.css'],
   directives: [
     coreDirectives,
   ],
 )
 class ContextListComponent implements OnInit {
-  List<int> login_no = [];
-  List<int> login_yes = [1];
+  List<int> login_no = [1];
+  List<int> login_yes = [];
 //datebaseErea
-  final users = [
+  var users = [
     {
       'userID': "10021",
       'password': '10021',
@@ -52,22 +54,151 @@ class ContextListComponent implements OnInit {
       'nickName': '李华',
     },
   ];
-    List<String> messages = [
-     "消息","消息","消息","消息","消息",
+  var chatRooms = [
+    {
+      "nameList": ["10021", '10051', '10002'],
+      "roomID": 0001,
+      "roomName": "电子技术"
+    },
+    {
+      "nameList": ["10021", '10051', '10031'],
+      "roomID": 0002,
+      "roomName": "概率论"
+    },
+    {
+      "nameList": ["10021", '10051', '10031'],
+      "roomID": 0003,
+      "roomName": "马原"
+    },
+    {
+      "nameList": ["10021", '10051', '10031'],
+      "roomID": 0004,
+      "roomName": "电子技术2"
+    },
+    {
+      "nameList": ["10021", '10051', '10031'],
+      "roomID": 0005,
+      "roomName": "概率论2"
+    },
+    {
+      "nameList": ["10021", '10051', '10031'],
+      "roomID": 0006,
+      "roomName": "马原2"
+    }
+  ];
+  var sendTime = new DateTime.now();
+
+  var messages = [
+    {
+      'content': "message",
+      'send': "10021",
+      'receive': "0001",
+      'isQuestion': true,
+      'quote': "",
+      'messageID': "2020-06-24 11:35:59.675_10021"
+    },
+    {
+      'content': "message",
+      'send': "10021",
+      'receive': "0001",
+      'isQuestion': true,
+      'quote': "",
+      'messageID': "2020-06-24 11:37:59.675_10021"
+    },
+    {
+      'content': "message",
+      'send': "10021",
+      'receive': "0001",
+      'isQuestion': false,
+      'quote': "",
+      'messageID': "2020-06-24 11:38:59.675_10021"
+    },
+    {
+      'content': "message",
+      'send': "10021",
+      'receive': "0001",
+      'isQuestion': false,
+      'quote': "",
+      'messageID': "2020-06-24 11:39:59.675_10021"
+    },
+    {
+      'content': "message",
+      'send': "10021",
+      'receive': "0001",
+      'isQuestion': false,
+      'quote': "",
+      'messageID': "2020-06-24 11:40:59.675_10021"
+    },
+    {
+      'content': "message",
+      'send': "10021",
+      'receive': "0001",
+      'isQuestion': false,
+      'quote': "",
+      'messageID': "2020-06-24 11:41:59.675_10021"
+    },
+    {
+      'content': "message",
+      'send': "10021",
+      'receive': "0001",
+      'isQuestion': true,
+      'quote': "",
+      'messageID': "2020-06-24 11:42:59.675_10021"
+    },
+    {
+      'content': "message",
+      'send': "10021",
+      'receive': "0001",
+      'isQuestion': true,
+      'quote': "",
+      'messageID': "2020-06-24 11:43:59.675_10021"
+    },
+    {
+      'content': "message",
+      'send': "10051",
+      'receive': "0001",
+      'isQuestion': false,
+      'quote': "2020-06-24 11:35:59.675_10021",
+      'messageID': "2020-06-24 11:36:59.675_10021"
+    },
+    {
+      'content': "message",
+      'send': "10051",
+      'receive': "0001",
+      'isQuestion': false,
+      'quote': "2020-06-24 11:35:59.675_10021",
+      'messageID': "2020-06-24 11:37:59.675_10021"
+    },
+    {
+      'content': "message",
+      'send': "10051",
+      'receive': "0001",
+      'isQuestion': false,
+      'quote': "2020-06-24 11:35:59.675_10021",
+      'messageID': "2020-06-24 11:38:59.675_10021"
+    },
+    {
+      'content': "message",
+      'send': "10051",
+      'receive': "0001",
+      'isQuestion': true,
+      'quote': "",
+      'messageID': "2020-06-24 11:39:59.675_10021"
+    },
+    
   ];
 
-  
 //variable
-  String user = "user";
+  var user_now = {'userID': "", 'password': '', 'phone': '', 'nickName': ''};
   String isquestion = "no";
   String message = "none";
+  String roomNow = "";
 
-
-  List<String> contexts = ["电子技术", "概率论", "马原", "电子技术2", "概率论2", "马原2"];
   @override
   void ngOnInit() async {}
   void send() {
-    messages.add(message);
+
+    sendTime = new DateTime.now();
   }
 
   void thisIsQuestion() {
@@ -76,9 +207,12 @@ class ContextListComponent implements OnInit {
 
   void gotoChatRoom() {
     for (var loginUser in users) {
-      if (user == loginUser["userID"]) {
+      if ((user_now["userID"] == loginUser["userID"]) &&
+          (user_now["password"] == loginUser["password"])) {
         login_no = [];
         login_yes = [1];
+        user_now["phone"] = loginUser["phone"];
+        user_now["nickName"] = loginUser["nickName"];
         break;
       } else {
         login_no = [1];
@@ -88,10 +222,18 @@ class ContextListComponent implements OnInit {
   }
 
   void inputuser(String term) {
-    user = term;
+    user_now["userID"] = term;
+  }
+
+  void inputPassword(String term) {
+    user_now["password"] = term;
   }
 
   void inputmessage(String term) {
     message = term;
+  }
+
+  void selectRoom(var term) {
+    roomNow = term["roomID"];
   }
 }
