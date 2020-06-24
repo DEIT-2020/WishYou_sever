@@ -32,38 +32,34 @@
     </div>
     <div class="send">
         <div class="Sstate">
-            <button class="button1">
+            <button class="button1" (click)="send()">
               send
           </button>
-            <button class="button2">
+            <button class="button2" (click)="thisIsQuestion()">
               question
           </button>
         </div>
-        <input class="input">
+        <input #message class="input" (keyup)="inputmessage(message.value)" type="text" placeholder="输入内容">
     </div>
     <div class="QandA">
-
     </div>>
-
-
     <div class="contextList">
         <ul>
-            <li class="context">
-
+            <li class="context" *ngFor="let context_item of contexts">
                 <div>
                     <t>
-                        111111
+                        {{context_item}}
                     </t>
                 </div>
             </li>
         </ul>
     </div>
     <div class="chatroom">
-        <div class="messageBox">
+        <div class="messageBox" *ngFor="let message_item of messages">
             <div class="circle"></div>
             <div class="messageOther">
                 <t>
-                    222
+                    {{message_item}}
                 </t>
             </div>
         </div>
