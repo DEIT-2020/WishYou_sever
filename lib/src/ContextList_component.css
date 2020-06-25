@@ -146,13 +146,13 @@
 
 .messageOther {
     /* background-color: rgba(191, 191, 191, 1); */
-    height: 60%;
     width: 50%;
+    height: 90%;
     /* border-width: 15px; */
     /* border-style: solid; */
     /* border-color: rgba(191, 191, 191); */
     position: relative;
-    display: inline-block;
+    /* display: inline-block; */
     /* font-size: 2px; */
     /* float: left; */
 }
@@ -169,9 +169,11 @@
     border-radius: 50%;
     border: none;
     position: relative;
-    display: inline-block;
+    /* display: inline-block; */
+    float: left;
+    overflow: hidden;
     margin-left: 2%;
-    margin-top: 1%;
+    margin-top: 3%;
     /* vertical-align: middle; */
 }
 
@@ -187,36 +189,103 @@
 }
 
 .rectangle {
-    width: 70%;
-    height: 100%;
+    width: 66%;
+    height: 65%;
     /* width: auto;
     height: auto; */
-    background: rgba(215, 215, 215, 1);
+    background: rgb(228, 228, 228);
     -moz-border-radius: 0px 15px 15px 15px;
     border-radius: 0px 15px 15px 15px;
-    display: inline-block;
-    vertical-align: middle;
+    /* display: inline-block; */
+    /* vertical-align: middle; */
+    float: left;
+    overflow: hidden;
     margin-left: 2%;
     margin-top: 3%;
+    padding: 13px 15px 13px 15px;
+    color: #555555;
 }
 
 .button2 {
-    display: inline-block;
-    vertical-align: middle;
+    /* display: inline-block; */
+    float: left;
+    overflow: hidden;
+    /* vertical-align: middle; */
     margin-left: 2%;
-    margin-top: 10%;
+    margin-top: 16.5%;
 }
 
 .messageMy {
-    background-color: rgba(191, 191, 191, 0.5);
-    height: 25%;
-    width: 70%;
+    /* background-color: rgba(191, 191, 191, 0.5); */
+    width: 50%;
+    height: 90%;
     position: relative;
-    left: 25%;
-    top: 0%;
+    float: right;
+    right: 9%;
+    margin-top: auto;
+    /* top: 0%; */
     /* border-width: 15px;
     border-style: ridge;
     border-color: rgba(191, 191, 191); */
+}
+
+.circle2 {
+    width: 55px;
+    height: 55px;
+    background: rgb(117, 192, 255);
+    /* -moz-border-radius: 60px;
+    -webkit-border-radius: 60px; */
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    /* border-radius: 60px; */
+    border-radius: 50%;
+    border: none;
+    position: relative;
+    /* display: inline-block; */
+    float: left;
+    overflow: hidden;
+    margin-left: 2%;
+    margin-top: 3%;
+    /* vertical-align: middle; */
+}
+
+.circle-text2 {
+    /* font-family:"黑体",Helvetica,"Arial","Microsoft YaHei","宋体",sans-serif; */
+    width: 55px;
+    height: 55px;
+    line-height: 55px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: normal;
+    color: white;
+}
+
+.rectangle2 {
+    width: 66%;
+    height: 65%;
+    /* width: auto;
+    height: auto; */
+    /* background: rgba(215, 215, 215, 1); */
+    background-color: rgba(191, 191, 191, 1);
+    -moz-border-radius: 15px 0px 15px 15px;
+    border-radius: 15px 0px 15px 15px;
+    /* display: inline-block; */
+    /* vertical-align: middle; */
+    float: left;
+    overflow: hidden;
+    margin-left: 2%;
+    margin-top: 3%;
+    padding: 13px 15px 13px 15px;
+    color: #555555;
+}
+
+.button2-2 {
+    /* display: inline-block; */
+    /* vertical-align: middle; */
+    float: left;
+    overflow: hidden;
+    margin-left: 2%;
+    margin-top: 16.5%;
 }
 
 .send {
