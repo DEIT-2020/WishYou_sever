@@ -3,8 +3,11 @@ class ChatRoom extends ManagedObject<_ChatRoom> implements _ChatRoom {}
 
 class _ChatRoom {
   @primaryKey
-  int roomID;
+  String roomID;
 
   @Column(unique: true)
-  List<int> nameList;
+  List<String> nameList;
+
+  @Column(unique: true)
+  String roomName;
 }

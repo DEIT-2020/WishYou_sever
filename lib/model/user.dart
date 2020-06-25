@@ -3,7 +3,7 @@ class User extends ManagedObject<_User> implements _User {}
 
 class _User {
   @primaryKey
-  int userID;
+  String userID;
 
   @Column(unique: true)
   String password;

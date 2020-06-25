@@ -17,7 +17,5 @@ class LoginController extends ResourceController {
 
     return Response.ok("1");
   }
-  
-
-  
+ 
 }

@@ -43,9 +43,8 @@ class HeroesChannel extends ApplicationChannel {
 
     // Prefer to use `link` instead of `linkFunction`.
     // See: https://aqueduct.io/docs/http/request_controller/
-    router.route('/login/[:ID]').link(() => LoginController(context));
     router.route('/chatroom/more').link(() => ChatRoomController(context));
-    router.route('/app').link(() => MyappController(context));
+    router.route('/login/[:userID]').link(() => MyappController(context));
 
     return router;
   }
