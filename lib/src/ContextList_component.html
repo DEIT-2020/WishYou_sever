@@ -31,9 +31,7 @@
     <div class="contextList">
         <div class="context" *ngFor="let a_Room of roomNameListNow">
             <button (click)="selectRoom(a_Room)" class="button1">
-                <!-- <t> -->
                 {{a_Room}}
-                <!-- </t> -->
             </button>
         </div>
     </div>
@@ -41,9 +39,11 @@
     <div class="chatroom">
         <div class="messageBox" *ngFor="let question_item of questionListNow">
             <div class="messageOther">
-                <t>
-                    {{question_item["send"]}}
-                </t>
+                <div class="circle">
+                    <div class="circle-text">
+                        {{question_item["send"]}}
+                    </div>
+                </div>
                 <t>
                     {{question_item["content"]}}
                 </t>
@@ -69,8 +69,8 @@
     </div>
 
     <div class="QandA">
-        <div class="messageBox" *ngFor="let message_item of messageListNow">
-            <div class="messageOther">
+        <div class="messageBox2" *ngFor="let message_item of messageListNow">
+            <div class="messageOther2">
                 <t>
                     {{message_item["send"]}}
                 </t>

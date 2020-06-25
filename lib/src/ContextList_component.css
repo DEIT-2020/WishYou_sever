@@ -137,9 +137,9 @@
 }
 
 .messageBox {
-    height: 25%;
-    width: 70%;
-    border-width: 0.02px;
+    height: 20%;
+    width: 110%;
+    border-width: 0px;
     border-style: none;
 }
 
@@ -147,15 +147,30 @@
     width: 60px;
     height: 60px;
     background: rgb(117, 192, 255);
-    -moz-border-radius: 60px;
-    -webkit-border-radius: 60px;
-    border-radius: 60px;
+    /* -moz-border-radius: 60px;
+    -webkit-border-radius: 60px; */
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    /* border-radius: 60px; */
+    border-radius: 50%;
+    border: none;
     position: relative;
+}
+
+.circle-text {
+    /* font-family:"黑体",Helvetica,"Arial","Microsoft YaHei","宋体",sans-serif; */
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: normal;
+    color: white;
 }
 
 .messageOther {
     background-color: rgba(191, 191, 191, 1);
-    height: 25%;
+    height: 60%;
     width: 50%;
     border-width: 15px;
     border-style: solid;
@@ -221,7 +236,7 @@
     width: 10%;
     position: relative;
     left: 89%;
-    top: 13%;
+    top: 11%;
     border-radius: 4px;
     background-color: #58B5FE;
     color: white;
@@ -234,7 +249,7 @@
     width: 10%;
     position: relative;
     left: 65%;
-    top: 13%;
+    top: 11%;
     border-radius: 4px;
     background-color: #58B5FE;
     color: white;
@@ -284,6 +299,23 @@
     border-top: 0px;
     border-bottom: 0px;
     border-right: 0px;
+}
+
+.messageBox2 {
+    height: 25%;
+    width: 110%;
+    border-width: 0px;
+    border-style: none;
+}
+
+.messageOther2 {
+    background-color: rgba(191, 191, 191, 1);
+    height: 25%;
+    width: 50%;
+    border-width: 15px;
+    border-style: solid;
+    border-color: rgba(191, 191, 191);
+    position: relative;
 }
 
 
