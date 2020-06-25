@@ -141,11 +141,25 @@
     width: 110%;
     border-width: 0px;
     border-style: none;
+    /* display: inline-block; */
+}
+
+.messageOther {
+    /* background-color: rgba(191, 191, 191, 1); */
+    height: 60%;
+    width: 50%;
+    /* border-width: 15px; */
+    /* border-style: solid; */
+    /* border-color: rgba(191, 191, 191); */
+    position: relative;
+    display: inline-block;
+    /* font-size: 2px; */
+    /* float: left; */
 }
 
 .circle {
-    width: 60px;
-    height: 60px;
+    width: 55px;
+    height: 55px;
     background: rgb(117, 192, 255);
     /* -moz-border-radius: 60px;
     -webkit-border-radius: 60px; */
@@ -155,27 +169,42 @@
     border-radius: 50%;
     border: none;
     position: relative;
+    display: inline-block;
+    margin-left: 2%;
+    margin-top: 1%;
+    /* vertical-align: middle; */
 }
 
 .circle-text {
     /* font-family:"黑体",Helvetica,"Arial","Microsoft YaHei","宋体",sans-serif; */
-    width: 60px;
-    height: 60px;
-    line-height: 60px;
+    width: 55px;
+    height: 55px;
+    line-height: 55px;
     text-align: center;
     font-size: 15px;
     font-weight: normal;
     color: white;
 }
 
-.messageOther {
-    background-color: rgba(191, 191, 191, 1);
-    height: 60%;
-    width: 50%;
-    border-width: 15px;
-    border-style: solid;
-    border-color: rgba(191, 191, 191);
-    position: relative;
+.rectangle {
+    width: 70%;
+    height: 100%;
+    /* width: auto;
+    height: auto; */
+    background: rgba(215, 215, 215, 1);
+    -moz-border-radius: 0px 15px 15px 15px;
+    border-radius: 0px 15px 15px 15px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 2%;
+    margin-top: 3%;
+}
+
+.button2 {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 2%;
+    margin-top: 10%;
 }
 
 .messageMy {
@@ -185,9 +214,9 @@
     position: relative;
     left: 25%;
     top: 0%;
-    border-width: 15px;
+    /* border-width: 15px;
     border-style: ridge;
-    border-color: rgba(191, 191, 191);
+    border-color: rgba(191, 191, 191); */
 }
 
 .send {
