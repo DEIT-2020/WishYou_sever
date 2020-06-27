@@ -1,4 +1,5 @@
 <div *ngFor="let login of login_no" class="body">
+
     <!-- <Login></Login> -->
     <div class="login-page">
         <div class="form">
@@ -11,6 +12,7 @@
         </div>
     </div>
 
+
 </div>
 <div *ngFor="let login of login_yes">
     <!-- <ChatRoom></ChatRoom>
@@ -21,7 +23,6 @@
     <div class="state">
         <div class="personal">
             {{user_now["nickName"]}}
-            <button id="login" (click)="gotoChatRoom()">登　录</button>
         </div>
 
         <div class="WishYou">聊天室</div>
@@ -36,43 +37,75 @@
         </div>
     </div>
 
+    <div class="addbox">
+        <div class="addhead">
+            创建聊天室
+        </div>
+
+        <div class="adduser">
+            加入用户：
+        </div>
+        <input class="input2" type="text" placeholder="输入账号">
+        <button class="button5">
+            添加
+        </button>
+
+        <div class="addname">
+            聊天室名：
+        </div>
+        <input class="input3" type="text" placeholder="输入聊天室名">
+        <button class="button6">
+            创建
+        </button>
+    </div>
+
     <div class="chatroom">
-        <div class="messageBox" *ngFor="let question_item of questionListNow">
+        <div class="messageBox" *ngFor="let message_item of messageListNow">
             <div class="messageOther">
                 <div class="circle">
                     <div class="circle-text">
-                        {{question_item["send"]}}
+                        {{message_item["send"]}}
                     </div>
                 </div>
                 <div class="rectangle">
-                    {{question_item["content"]}}
+                    {{message_item["content"]}}
                 </div>
-                <button class="button2" (click)="quote(question_item)">
-                    回复
+                <button class="button2" (click)="quote(message_item)">
+                    引用
                 </button>
             </div>
-            <div class="messageMy">
+            <!-- <div class="messageMy">
                 <button class="button2-2" (click)="quote(question_item)">
-                    回复
+                    引用
                 </button>
                 <div class="rectangle2">
-                    <!-- {{question_item["content"]}} -->
+                    {{question_item["content"]}}
                     message
                 </div>
                 <div class="circle2">
                     <div class="circle-text2">
-                        <!-- {{question_item["send"]}} -->
+                        {{question_item["send"]}}
                         me
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 
     <div class="send">
         <div class="Sstate">
             <div class="quote">引用：</div>
-            <div class="quoteJudge">--</div>
+            <div *ngFor="let quote of quote_no" class="body">
+                <div class="quoteJudge">--</div>
+            </div>
+            <div *ngFor="let quote of quote_yes">
+                <div class="quoteJudge">是</div>
+                <button (click)="cancelQuote()">
+                取消引用
+                </button>
+            </div>
+
+
             <button class="button3" (click)="send()">
                 发送
             </button>
@@ -84,16 +117,16 @@
     </div>
 
     <div class="QandA">
-        <div class="messageBox2" *ngFor="let message_item of messageListNow">
+        <div class="messageBox2" *ngFor="let question_item of questionListNow">
             <div class="messageOther2">
                 <t>
-                    {{message_item["send"]}}
+                    {{question_item["send"]}}
                 </t>
                 <t>
-                    {{message_item["content"]}}
+                    {{question_item["content"]}}
                 </t>
-                <button (click)="quote(message_item)">
-                    回复
+                <button (click)="quote(question_item)">
+                    引用
                 </button>
             </div>
         </div>

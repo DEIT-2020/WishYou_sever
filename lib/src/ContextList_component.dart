@@ -1,5 +1,7 @@
+import 'package:http/http.dart' as http;
 import 'package:angular/angular.dart';
-export 'dart:async';
+import 'dart:async';
+import 'dart:convert';
 
 @Component(
   selector: 'ContextList',
@@ -11,8 +13,10 @@ export 'dart:async';
   ],
 )
 class ContextListComponent implements OnInit {
-  List<int> login_no = [];
-  List<int> login_yes = [1];
+  List<int> login_no = [1];
+  List<int> login_yes = [];
+  List<int> quote_no = [1];
+  List<int> quote_yes = [];
 
 //datebaseErea
   var users = [
@@ -185,23 +189,27 @@ class ContextListComponent implements OnInit {
   ];
 
 //variable
-  var user_now = {'userID': "10021", 'password': '10021', 'phone': '', 'nickName': '吴楚湘'};
-  String isquestion = "no";
-  String message = "none";
+  var user_now = {'userID': "10021", 'password': '10021', 'phone': '', 'nickName': ''};
+  bool ifLogin = false;
   String roomNow = "";
   String roomIDNow = "";
   String sendMessageQuote = "";
-  bool hadQuote = false;
+  String sendMessageID = "";
+  String sendMessageReceive = "";
+  String sendMessageSend = "";
+  String sendMessageContent = "";
+  bool sendMessageIsQuestion = false;
+  bool sendhadQuote = false;
   var roomListNow = [];
   var roomNameListNow = [];
   var messageListNow = [];
   var questionListNow = [];
+  var charset;
 
   @override
-  void ngOnInit() async {}
+  void ngOnInit() async {
 
-  void gotoChatRoom() {
-    for (var loginUser in users) {
+        for (var loginUser in users) {
       //存储用户识别信息
       if ((user_now["userID"] == loginUser["userID"]) &&
           (user_now["password"] == loginUser["password"])) {
@@ -229,6 +237,13 @@ class ContextListComponent implements OnInit {
     }
   }
 
+  var client = new http.Client();
+  var url = 'http://localhost:8888';
+
+  void gotoChatRoom() {
+
+
+ }
   void inputuser(String term) {
     user_now["userID"] = term;
   }
@@ -236,24 +251,69 @@ class ContextListComponent implements OnInit {
   void inputPassword(String term) {
     user_now["password"] = term;
   }
-
+  
   void inputmessage(String term) {
-    message = term;
+    sendMessageContent = term;
   }
 
-  void send() {}
+  void send() {
+    var nowTime;
+    String sendTime;
+    sendMessageSend = user_now["userID"];
+    sendMessageReceive = roomIDNow;
+    nowTime = new DateTime.now();
+    sendTime = nowTime.toString();
+    sendMessageID = sendTime + "_" + sendMessageSend;
+    messages.add(
+      {
+        'content': sendMessageContent,
+        'send': sendMessageSend,
+        'receive': sendMessageReceive,
+        'isQuestion': sendMessageIsQuestion,
+        'quote': sendMessageQuote,
+        'messageID': sendMessageID
+      },
+    );
+    sendMessageQuote = "";
+    sendMessageID = "";
+    sendMessageReceive = "";
+    sendMessageSend = "";
+    sendMessageContent = "";
+    sendMessageIsQuestion = false;
+    sendhadQuote = false;
+    messageListNow = [];
+    questionListNow = [];
+    for (var aMessage in messages) {
+      if (roomIDNow == aMessage["receive"]) {
+        messageListNow.add(aMessage);
+        if (aMessage["isQuestion"]) {
+          questionListNow.add(aMessage);
+        }
+      }
+    }
+  }
 
   void quote(var term) {
-    sendMessageQuote = term[quote];
-    hadQuote = true;
+    sendMessageQuote = term["messageID"];
+sendhadQuote=true;
+quote_no = [];
+quote_yes = [1];
+  }
+
+  void cancelQuote(){
+quote_no = [1];
+quote_yes = [];
+sendhadQuote=false;
   }
 
   void thisIsQuestion() {
-    isquestion = "yes";
+    sendMessageIsQuestion = true;
   }
 
   void selectRoom(String term) {
     messageListNow = [];
+    questionListNow = [];
+
     roomNow = term;
     for (var aRoom in chatRooms) {
       if (roomNow == aRoom["roomName"]) {
