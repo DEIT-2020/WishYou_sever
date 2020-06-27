@@ -1,0 +1,116 @@
+<div *ngIf="!hadLogin" class="body">
+    <div class="login-page">
+        <div class="form">
+            <form class="login-form">
+                <p class="chatRoom">Q&Aroom</p>
+                <input #login (keyup)="inputuser(login.value)" type="text" placeholder="10021" />
+                <input #password (keyup)="inputPassword(password.value)" type="password" placeholder="10021" />
+                <button id="login" (click)="gotoChatRoom()">登　录</button>
+            </form>
+        </div>
+    </div>
+</div>
+<div *ngIf="hadLogin">
+    <div class="state">
+        <div class="personal">
+            {{user_now["nickName"]}}{{user_now["userID"]}}
+        </div>
+        <div class="WishYou">聊天室</div>
+        <div class="board">问答列表</div>
+    </div>
+    <div class="contextList">
+        <div class="context" *ngFor="let a_Room of roomListNow">
+            <button (click)="selectRoom(a_Room)" class="button1">
+                {{a_Room["roomName"]}}
+            </button>
+        </div>
+    </div>
+    <div class="addbox">
+        <div class="addhead">
+            创建聊天室
+        </div>
+        <div class="adduser">
+            加入用户：
+        </div>
+        <input class="input2" type="text" placeholder="输入账号" #addContext (keyup)="inputContext(addContext.value)">
+        <button class="button5" (click)="add_Context()">添加用户</button>
+        <div class="addname">
+            聊天室名：
+        </div>
+        <input #input_room (keyup)="inputroom(input_room.value)" type="text" class="input3" placeholder="输入聊天室名" />
+        <button class="button6" (click)="addRoom()">确认添加</button>
+    </div>
+
+
+    <div class="QandA">
+        <div class="messageBox2" *ngFor="let question_item of questionListNow">
+            <div class="messageOther2">
+                <t>
+                    {{question_item["send"]}}
+                </t>
+                <t>
+                    {{question_item["content"]}}
+                </t>
+                <button (click)="quote(question_item)">
+                    引用
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="chatroom">
+        <div class="messageBox" *ngFor="let message_item of messageListNow">
+            <div class="messageOther">
+                <div class="circle">
+                    <div class="circle-text">
+                        {{message_item["send"]}}
+                    </div>
+                </div>
+                <div class="rectangle">
+                    {{message_item["content"]}}
+                </div>
+                <button class="button2" (click)="quote(message_item)">
+                    引用
+                </button>
+            </div>
+            <div class="messageMy">
+                <button class="button2-2" (click)="quote(message_item)">
+                    引用
+                </button>
+                <div class="rectangle2">
+                    {{message_item["content"]}} message
+                </div>
+                <div class="circle2">
+                    <div class="circle-text2">
+                        {{message_item["send"]}} me
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="send">
+        <div class="Sstate">
+            <div class="quote">引用：</div>
+            <div *ngIf="ifQuote" class="body">
+                <div class="quoteJudge">--</div>
+            </div>
+            <div *ngIf="ifQuote">
+                <div class="quoteJudge">是</div>
+                <button (click)="cancelQuote()">
+                取消引用
+                </button>
+            </div>
+            <button class="button3" (click)="send()">
+                发送
+            </button>
+            <button class="button4" (click)="thisIsQuestion()">
+                提问
+            </button>
+        </div>
+        <input #message class="input" (keyup)="inputmessage(message.value)" type="text" placeholder="输入内容">
+    </div>
+
+
+
+</div>
