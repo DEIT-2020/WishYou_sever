@@ -1,4 +1,4 @@
-import 'package:heroes/heroes.dart';
+import 'package:WishYou/WishYou.dart';
 
 Future main() async {
   final app = Application<HeroesChannel>()
