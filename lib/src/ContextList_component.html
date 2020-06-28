@@ -20,7 +20,7 @@
     </div>
     <div class="contextList">
         <div class="context" *ngFor="let a_Room of roomListNow">
-            <button (click)="selectRoom(a_Room)" class="button1">
+            <button (click)="selectRoom(a_Room['roomName'])" class="button1">
                 {{a_Room["roomName"]}}
             </button>
         </div>
@@ -45,22 +45,23 @@
     <div class="QandA">
         <div class="messageBox2" *ngFor="let question_item of questionListNow">
             <div class="messageOther2">
-                <t>
+                <div class="Qusersname">
                     {{question_item["send"]}}
-                </t>
-                <t>
+                    <t>：</t>
+                </div>
+                <div class="Qcontent">
                     {{question_item["content"]}}
-                </t>
-                <button (click)="quote(question_item)">
-                    引用
+                </div>
+                <button class="button8" (click)="quote(question_item)">
+                    回复
                 </button>
             </div>
         </div>
     </div>
 
     <div class="chatroom">
-        <div class="messageBox" *ngFor="let message_item of messageListNow">
-            <div class="messageOther">
+        <div class="messageBox" *ngFor="let message_item of messages">
+            <div class="messageOther" *ngIf="!(message_item['send']==user_now['userID'])">
                 <div class="circle">
                     <div class="circle-text">
                         {{message_item["send"]}}
@@ -73,12 +74,12 @@
                     引用
                 </button>
             </div>
-            <div class="messageMy">
+            <div class="messageMy" *ngIf="message_item['send']==user_now['userID']">
                 <button class="button2-2" (click)="quote(message_item)">
                     引用
                 </button>
                 <div class="rectangle2">
-                    {{message_item["content"]}} message
+                    {{message_item["content"]}}
                 </div>
                 <div class="circle2">
                     <div class="circle-text2">
@@ -92,12 +93,12 @@
     <div class="send">
         <div class="Sstate">
             <div class="quote">引用：</div>
-            <div *ngIf="ifQuote" class="body">
+            <div *ngIf="!ifQuote">
                 <div class="quoteJudge">--</div>
             </div>
             <div *ngIf="ifQuote">
                 <div class="quoteJudge">是</div>
-                <button (click)="cancelQuote()">
+                <button class="button7" (click)="cancelQuote()">
                 取消引用
                 </button>
             </div>

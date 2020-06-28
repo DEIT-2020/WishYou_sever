@@ -198,8 +198,8 @@ class ContextListComponent implements OnInit {
   }
 
   void addRoom() {
-    roomNameListNow.clear();
-    roomListNow.clear();
+    roomNameListNow=[];
+    roomListNow=[];
     var aTime = new DateTime.now();
     String theTime = aTime.toString();
     aRoomID = theTime + "_" + sendMessageSend;
@@ -330,30 +330,30 @@ class ContextListComponent implements OnInit {
       'quote': "",
       'messageID': "2020-06-24 11:40:59.675_10021"
     },
-    {
-      'content': "message",
-      'send': "10021",
-      'receive': "0001",
-      'isQuestion': false,
-      'quote': "",
-      'messageID': "2020-06-24 11:41:59.675_10021"
-    },
-    {
-      'content': "message",
-      'send': "10021",
-      'receive': "0001",
-      'isQuestion': true,
-      'quote': "",
-      'messageID': "2020-06-24 11:42:59.675_10021"
-    },
-    {
-      'content': "message",
-      'send': "10021",
-      'receive': "0001",
-      'isQuestion': true,
-      'quote': "",
-      'messageID': "2020-06-24 11:43:59.675_10021"
-    },
+    // {
+    //   'content': "message",
+    //   'send': "10021",
+    //   'receive': "0001",
+    //   'isQuestion': false,
+    //   'quote': "",
+    //   'messageID': "2020-06-24 11:41:59.675_10021"
+    // },
+    // {
+    //   'content': "message",
+    //   'send': "10021",
+    //   'receive': "0001",
+    //   'isQuestion': true,
+    //   'quote': "",
+    //   'messageID': "2020-06-24 11:42:59.675_10021"
+    // },
+    // {
+    //   'content': "message",
+    //   'send': "10021",
+    //   'receive': "0001",
+    //   'isQuestion': true,
+    //   'quote': "",
+    //   'messageID': "2020-06-24 11:43:59.675_10021"
+    // },
     {
       'content': "message",
       'send': "10051",

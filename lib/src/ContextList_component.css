@@ -206,7 +206,7 @@
     border-color: rgba(215, 215, 215, 1);
     border-top: 0px;
     border-bottom: 0px;
-    border-right: 0px;
+    /* border-right: 0px; */
 }
 
 .messageBox {
@@ -402,12 +402,12 @@
 }
 
 .button3 {
-    position: relative;
-    height: 80%;
+    /* position: relative; */
+    height: 16%;
     width: 10%;
-    position: relative;
+    position: absolute;
     left: 89%;
-    top: 11%;
+    top: 2%;
     border-radius: 4px;
     background-color: #58B5FE;
     color: white;
@@ -415,16 +415,24 @@
 }
 
 .button4 {
-    position: relative;
-    height: 80%;
+    /* position: relative; */
+    height: 16%;
     width: 10%;
-    position: relative;
-    left: 65%;
-    top: 11%;
+    position: absolute;
+    left: 75%;
+    top: 2%;
     border-radius: 4px;
     background-color: #58B5FE;
     color: white;
     font-size: 15px;
+}
+
+.button7 {
+    position: absolute;
+    left: 11%;
+    top: 5%;
+    background-color: #b8b6b6;
+    color: white;
 }
 
 .input {
@@ -474,20 +482,47 @@
 }
 
 .messageBox2 {
-    height: 25%;
-    width: 110%;
+    height: 21%;
+    width: 100%;
     border-width: 0px;
     border-style: none;
 }
 
 .messageOther2 {
-    background-color: rgba(191, 191, 191, 1);
-    height: 25%;
-    width: 50%;
-    border-width: 15px;
+    /* background: rgb(228, 228, 228); */
+    background: rgb(235, 235, 235);
+    height: 85%;
+    width: 95%;
+    left: 2.5%;
+    top: 12%;
+    /* border-width: 0px;
     border-style: solid;
-    border-color: rgba(191, 191, 191);
+    border-color: rgba(191, 191, 191); */
     position: relative;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+}
+
+.Qusersname {
+    position: absolute;
+    left: 2%;
+    top: 5%;
+    color: #58B5FE;
+    font-weight: bold;
+}
+
+.Qcontent {
+    position: absolute;
+    left: 13%;
+    top: 7%;
+}
+
+.button8 {
+    position: relative;
+    left: 88%;
+    top: 78%;
+    background-color: #b8b6b6;
+    color: white;
 }
 
 
