@@ -206,7 +206,7 @@
     border-color: rgba(215, 215, 215, 1);
     border-top: 0px;
     border-bottom: 0px;
-    /* border-right: 0px; */
+    border-right: 0px;
 }
 
 .messageBox {
@@ -247,6 +247,8 @@
     overflow: hidden;
     margin-left: 2%;
     margin-top: 3%;
+    /* left: 2%;
+    top: 3%; */
     /* vertical-align: middle; */
 }
 
@@ -274,6 +276,24 @@
     float: left;
     overflow: hidden;
     margin-left: 2%;
+    margin-top: 3%;
+    padding: 13px 15px 13px 15px;
+    color: #555555;
+}
+
+.rectangle3 {
+    width: 50%;
+    height: 30%;
+    /* width: auto;
+    height: auto; */
+    background: rgb(247, 247, 247);
+    -moz-border-radius: 0px 10px 10px 10px;
+    border-radius: 0px 10px 10px 10px;
+    /* display: inline-block; */
+    /* vertical-align: middle; */
+    float: left;
+    overflow: hidden;
+    margin-left: 15%;
     margin-top: 3%;
     padding: 13px 15px 13px 15px;
     color: #555555;
@@ -349,6 +369,24 @@
     margin-left: 2%;
     margin-top: 3%;
     padding: 13px 15px 13px 15px;
+    color: #555555;
+}
+
+.rectangle4 {
+    width: 50%;
+    height: 30%;
+    /* width: auto;
+    height: auto; */
+    background: rgb(247, 247, 247);
+    -moz-border-radius: 10px 0px 10px 10px;
+    border-radius: 10px 0px 10px 10px;
+    /* display: inline-block; */
+    /* vertical-align: middle; */
+    float: left;
+    overflow: hidden;
+    margin-left: 13%;
+    margin-top: 2%;
+    padding: 5px 15px 13px 15px;
     color: #555555;
 }
 
@@ -437,7 +475,7 @@
 
 .input {
     /* background-color: rgba(168, 168, 168, ); */
-    height: 100%;
+    height: 79%;
     width: 100%;
     position: relative;
     left: 0%;
@@ -518,11 +556,27 @@
 }
 
 .button8 {
-    position: relative;
+    position: absolute;
     left: 88%;
     top: 78%;
     background-color: #b8b6b6;
     color: white;
+}
+
+.rectangle5 {
+    background: rgb(247, 247, 247);
+    height: 30%;
+    width: 80%;
+    left: 2%;
+    top: 60%;
+    /* border-width: 0px;
+    border-style: solid;
+    border-color: rgba(191, 191, 191); */
+    position: relative;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    padding-left: 3px;
+    padding-top: 5px;
 }
 
 

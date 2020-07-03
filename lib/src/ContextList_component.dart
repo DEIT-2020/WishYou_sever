@@ -4,7 +4,6 @@ import 'dart:async';
 @Component(
   selector: 'ContextList',
   templateUrl: 'ContextList_component.html',
-  // templateUrl: '1.html',
   styleUrls: ['ContextList_component.css'],
   directives: [
     coreDirectives,
@@ -46,8 +45,8 @@ class ContextListComponent implements OnInit {
 
 //登录
   var user_now = {
-    'userID': "10021",
-    'password': '10021',
+    'userID': '',
+    'password': '',
     'phone': '',
     'nickName': ''
   };
@@ -121,6 +120,8 @@ class ContextListComponent implements OnInit {
   String sendMessageReceive = "";
   String sendMessageSend = "";
   String sendMessageContent = "";
+  String sendMessageNickName = "";
+  String quoteContent = "";
   bool sendMessageIsQuestion = false;
   bool sendhadQuote = true;
 
@@ -132,6 +133,7 @@ class ContextListComponent implements OnInit {
     var nowTime;
     String sendTime;
     sendMessageSend = user_now["userID"];
+    sendMessageNickName = user_now["nickName"];
     sendMessageReceive = roomIDNow;
     nowTime = new DateTime.now();
     sendTime = nowTime.toString();
@@ -140,9 +142,11 @@ class ContextListComponent implements OnInit {
       {
         'content': sendMessageContent,
         'send': sendMessageSend,
+        'nickName':sendMessageNickName,
         'receive': sendMessageReceive,
         'isQuestion': sendMessageIsQuestion,
         'quote': sendMessageQuote,
+        'quoteContent':quoteContent,
         'messageID': sendMessageID
       },
     );
@@ -167,8 +171,17 @@ class ContextListComponent implements OnInit {
 
   void quote(var term) {
     sendMessageQuote = term["messageID"];
+    quoteContent = term["content"];
     sendhadQuote = true;
     ifQuote = true;
+  }
+
+  void requote(var term) {
+    sendMessageQuote = term["messageID"];
+    quoteContent = term["content"];
+    sendhadQuote = true;
+    ifQuote = true;
+    sendMessageIsQuestion = true;
   }
 
   void cancelQuote() {
@@ -227,8 +240,8 @@ class ContextListComponent implements OnInit {
       'nickName': '张三',
     },
     {
-      'userID': "10001",
-      'password': '10001',
+      'userID': "10081",
+      'password': '10081',
       'phone': '18018011803',
       'nickName': '李四',
     },
@@ -291,100 +304,131 @@ class ContextListComponent implements OnInit {
   ];
   var messages = [
     {
-      'content': "message",
+      'content': "开始上课了，记得超星签到",
       'send': "10021",
-      'receive': "0001",
-      'isQuestion': true,
+      'nickName': '张三',
+      'receive': "2020-06-24 11:35:59.675_10021",
+      'isQuestion': false,
       'quote': "",
+      // 'quoteContent':"1",
       'messageID': "2020-06-24 11:35:59.675_10021"
     },
     {
-      'content': "message",
-      'send': "10021",
-      'receive': "0001",
-      'isQuestion': true,
-      'quote': "",
-      'messageID': "2020-06-24 11:37:59.675_10021"
-    },
-    {
-      'content': "message",
-      'send': "10021",
-      'receive': "0001",
-      'isQuestion': false,
-      'quote': "",
-      'messageID': "2020-06-24 11:38:59.675_10021"
-    },
-    {
-      'content': "message",
-      'send': "10021",
-      'receive': "0001",
-      'isQuestion': false,
-      'quote': "",
-      'messageID': "2020-06-24 11:39:59.675_10021"
-    },
-    {
-      'content': "message",
-      'send': "10021",
-      'receive': "0001",
-      'isQuestion': false,
-      'quote': "",
-      'messageID': "2020-06-24 11:40:59.675_10021"
-    },
-    // {
-    //   'content': "message",
-    //   'send': "10021",
-    //   'receive': "0001",
-    //   'isQuestion': false,
-    //   'quote': "",
-    //   'messageID': "2020-06-24 11:41:59.675_10021"
-    // },
-    // {
-    //   'content': "message",
-    //   'send': "10021",
-    //   'receive': "0001",
-    //   'isQuestion': true,
-    //   'quote': "",
-    //   'messageID': "2020-06-24 11:42:59.675_10021"
-    // },
-    // {
-    //   'content': "message",
-    //   'send': "10021",
-    //   'receive': "0001",
-    //   'isQuestion': true,
-    //   'quote': "",
-    //   'messageID': "2020-06-24 11:43:59.675_10021"
-    // },
-    {
-      'content': "message",
+      'content': "来了",
       'send': "10051",
-      'receive': "0001",
+      'nickName': '李华',
+      'receive': "2020-06-24 11:35:59.675_10021",
       'isQuestion': false,
-      'quote': "2020-06-24 11:35:59.675_10021",
+      'quote': "",
       'messageID': "2020-06-24 11:36:59.675_10021"
     },
     {
-      'content': "message",
-      'send': "10051",
-      'receive': "0001",
+      'content': "来了",
+      'send': "10031",
+      'nickName': '小明',
+      'receive': "2020-06-24 11:35:59.675_10021",
       'isQuestion': false,
-      'quote': "2020-06-24 11:35:59.675_10021",
-      'messageID': "2020-06-24 11:37:59.675_10021"
+      'quote': "",
+      'messageID': "2020-06-24 11:36:59.675_10021"
     },
     {
-      'content': "message",
-      'send': "10051",
-      'receive': "0001",
+      'content': "来了",
+      'send': "20002",
+      'nickName': '王五',
+      'receive': "2020-06-24 11:35:59.675_10021",
       'isQuestion': false,
-      'quote': "2020-06-24 11:35:59.675_10021",
+      'quote': "",
       'messageID': "2020-06-24 11:38:59.675_10021"
     },
     {
-      'content': "message",
-      'send': "10051",
-      'receive': "0001",
+      'content': "assert语句直接运行无法得出结果怎么办？求大神",
+      'send': "10021",
+      'nickName': '张三',
+      'receive': "2020-06-24 11:35:59.675_10021",
       'isQuestion': true,
       'quote': "",
+      'messageID': "2020-06-24 11:37:59.675_10021"
+    },
+    {
+      'content': "要用dart --enable-asserts xxx.dart执行",
+      'send': "10051",
+      'nickName': '李华',
+      'receive': "2020-06-24 11:35:59.675_10021",
+      'isQuestion': false,
+      'quote': "",
       'messageID': "2020-06-24 11:39:59.675_10021"
+    },
+    {
+      'content': "亲测xxx.dart得加上双引号",
+      'send': "10031",
+      'nickName': '小明',
+      'receive': "2020-06-24 11:35:59.675_10021",
+      'isQuestion': false,
+      'quote': "",
+      'messageID': "2020-06-24 11:40:59.675_10021"
+    },  
+    {
+      'content': "出现dictionary is not empty情况怎么处理呀？",
+      'send': "10051",
+      'nickName': '李华',
+      'receive': "2020-06-24 11:35:59.675_10021",
+      'isQuestion': true,
+      'quote': "",
+      'messageID': "2020-06-24 11:37:59.675_10021"
+    },
+    {
+      'content': "可以新建一个文件夹，然后打开这个文件夹再运行stagehand的命令",
+      'send': "10021",
+      'nickName': '张三',
+      'receive': "2020-06-24 11:35:59.675_10021",
+      'isQuestion': false,
+      'quoteContent': "出现dictionary is not empty情况怎么处理呀？",
+      'messageID': "2020-06-24 11:38:59.675_10021"
+    },
+    {
+      'content': "谢谢",
+      'send': "10051",
+      'nickName': '李华',
+      'receive': "2020-06-24 11:35:59.675_10021",
+      'isQuestion': false,
+      'quote': "",
+      'messageID': "2020-06-24 11:39:59.675_10021"
+    },
+    {
+      'content': "server爆红了TT",
+      'send': "10081",
+      'nickName': '李四',
+      'receive': "2020-06-24 11:35:59.675_10021",
+      'isQuestion': true,
+      'quote': "",
+      'messageID': "2020-06-24 11:41:59.675_10021"
+    },
+    {
+      'content': "sever下载以后大量爆红解决办法：1下载包 pub global activate aqueduct aqueduct pub get 2修改引用路径（两种办法） import 'package:heroes/heroes.dart'; （1）把pubspec.yaml里面的name改成heroes（推荐这钟，就不用再一个个文件改引用前面的heroes）（2）把前面的heroes改成sever（和pubspec.yaml里面的name后面保持一致）",
+      'send': "10002",
+      'nickName': '赵六',
+      'receive': "2020-06-24 11:35:59.675_10021",
+      'isQuestion': false,
+      'quote': "",
+      'messageID': "2020-06-24 11:42:59.675_10021"
+    },
+    {
+      'content': "大神来了",
+      'send': "20002",
+      'nickName': '王五',
+      'receive': "2020-06-24 11:35:59.675_10021",
+      'isQuestion': false,
+      'quote': "",
+      'messageID': "2020-06-24 11:43:59.675_10021"
+    },
+    {
+      'content': "@赵六 你可以把解决方案放到github quesntion and answer issues中",
+      'send': "10021",
+      'nickName': '张三',
+      'receive': "2020-06-24 11:35:59.675_10021",
+      'isQuestion': false,
+      'quote': "",
+      'messageID': "2020-06-24 11:43:59.675_10021"
     },
   ];
 }

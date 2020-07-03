@@ -46,25 +46,28 @@
         <div class="messageBox2" *ngFor="let question_item of questionListNow">
             <div class="messageOther2">
                 <div class="Qusersname">
-                    {{question_item["send"]}}
+                    {{question_item["nickName"]}}
                     <t>：</t>
                 </div>
                 <div class="Qcontent">
                     {{question_item["content"]}}
                 </div>
-                <button class="button8" (click)="quote(question_item)">
+                <button class="button8" (click)="requote(question_item)">
                     回复
                 </button>
+                <div class="rectangle5" *ngIf="!(question_item['quote']=='')">
+                    {{question_item["quoteContent"]}}
+                </div>
             </div>
         </div>
     </div>
 
     <div class="chatroom">
-        <div class="messageBox" *ngFor="let message_item of messages">
+        <div class="messageBox" *ngFor="let message_item of messageListNow">
             <div class="messageOther" *ngIf="!(message_item['send']==user_now['userID'])">
                 <div class="circle">
                     <div class="circle-text">
-                        {{message_item["send"]}}
+                        {{message_item["nickName"]}}
                     </div>
                 </div>
                 <div class="rectangle">
@@ -73,6 +76,9 @@
                 <button class="button2" (click)="quote(message_item)">
                     引用
                 </button>
+                <div class="rectangle3" *ngIf="!(message_item['quote']=='')">
+                    {{message_item["quoteContent"]}}
+                </div>
             </div>
             <div class="messageMy" *ngIf="message_item['send']==user_now['userID']">
                 <button class="button2-2" (click)="quote(message_item)">
@@ -83,8 +89,11 @@
                 </div>
                 <div class="circle2">
                     <div class="circle-text2">
-                        {{message_item["send"]}} me
+                        {{message_item["nickName"]}}
                     </div>
+                </div>
+                <div class="rectangle4" *ngIf="!(message_item['quote']=='')">
+                    {{message_item["quoteContent"]}}
                 </div>
             </div>
         </div>
@@ -99,7 +108,7 @@
             <div *ngIf="ifQuote">
                 <div class="quoteJudge">是</div>
                 <button class="button7" (click)="cancelQuote()">
-                取消引用
+                    取消引用
                 </button>
             </div>
             <button class="button3" (click)="send()">
@@ -109,7 +118,7 @@
                 提问
             </button>
         </div>
-        <input #message class="input" (keyup)="inputmessage(message.value)" type="text" placeholder="输入内容">
+        <input #message class="input" (keyup)="inputmessage(message.value)" type="text" placeholder="">
     </div>
 
 
