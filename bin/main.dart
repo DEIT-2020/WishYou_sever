@@ -2,7 +2,7 @@ import 'package:WishYou/WishYou.dart';
 
 Future main() async {
   final app = Application<HeroesChannel>()
-      ..options.configurationFilePath = "config.src.yaml"
+      ..options.configurationFilePath = "config.yaml"
       ..options.port = 8888;
 
   final count = Platform.numberOfProcessors ~/ 2;

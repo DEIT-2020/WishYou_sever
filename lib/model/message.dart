@@ -3,21 +3,24 @@ class Message extends ManagedObject<_Message> implements _Message {}
 
 class _Message {
   @primaryKey
-  int messageID;
-
-  @Column(unique: true)
   String content;
 
   @Column(unique: true)
-  int send;
+  String send;
+  
+  @Column(unique: true)
+  String nickName;
 
   @Column(unique: true)
-  int receive;
+  String receive;
 
   @Column(unique: true)
-  bool question;
+  bool isquestion;
 
   @Column(unique: true)
-  int quote;
+  String messageID;
+
+  @Column(unique: true)
+  String quote;
 
 }

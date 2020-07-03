@@ -1,6 +1,7 @@
+import 'package:WishYou/model/chatRoom.dart';
+import 'package:WishYou/model/message.dart';
 import 'package:aqueduct/aqueduct.dart';
 import 'package:WishYou/WishYou.dart';
-import 'package:WishYou/model/user.dart';
 
 class ChatRoomController extends ResourceController {
   ChatRoomController(this.context);
@@ -8,26 +9,20 @@ class ChatRoomController extends ResourceController {
   final ManagedContext context;
 
 
-
   @Operation.get()
-  Future<Response> getAllHeroes() async {
-    final userQuery = Query<User>(context);
-    final users = await userQuery.fetch();
-
-    return Response.ok(users);
+  Future<Response> getRoomMessage({@Bind.query('roomID') String roomID}) async {
+  final chatRoomQuery = Query<Message>(context);
+  if (roomID != null) {
+    chatRoomQuery.where((m) => m.receive).equalTo(roomID);
   }
+  final message = await chatRoomQuery.fetch();
 
-  @Operation.get('userID')
-  Future<Response> getuserByID(@Bind.path('userID') int userID) async {
-    final userQuery = Query<User>(context)
-      ..where((user) => user.userID).equalTo(userID);
-    final user = await userQuery.fetchOne();
-
-    if (user == null) {
-      return Response.notFound();
+    if (message == null) {
+    return Response.notFound();
+  }
+  else{
+    return Response.ok(message);
     }
-    return Response.ok(user);
   }
 
-  
 }

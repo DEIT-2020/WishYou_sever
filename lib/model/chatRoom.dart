@@ -5,6 +5,9 @@ class _ChatRoom {
   @primaryKey
   int roomID;
 
+   @Column(unique: true)
+  String roomName;
+
   @Column(unique: true)
   List<int> nameList;
 }

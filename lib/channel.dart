@@ -1,7 +1,8 @@
 import 'WishYou.dart';
-import 'controller/demo_controller.dart';
 import 'controller/Login_controller.dart';
 import 'controller/ChatRoom_controller.dart';
+import 'controller/CreateChatRoom_controller.dart';
+import 'controller/SendMessage_controller.dart';
 
 /// This type initializes an application.
 ///
@@ -41,9 +42,10 @@ class HeroesChannel extends ApplicationChannel {
   Controller get entryPoint {
     final router = Router();
 
-    router.route('/demo/[:ID]').link(() => DemoController(context));
     router.route('/login/[:ID]').link(() => LoginController(context));
-    router.route('/chatroom/more').link(() =>ChatRoomController(context));
+    router.route('/chatroom').link(() =>ChatRoomController(context));
+    router.route('/chatroom/create').link(() =>CreateChatRoomController(context));
+    router.route('/chatroom/[:ID]').link(() =>SendMessageController(context));
 
     return router;
   }
